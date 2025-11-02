@@ -10,19 +10,6 @@ services:
     restart: always
     ports:
       - 3000
-    labels:
-      - traefik.docker.network=dokploy-network
-      - traefik.http.routers.dockettest-test-fzey0d-3-web.rule=Host(`dockettest-test-fzey0d-acad2c-152-69-162-250.traefik.me`)
-      - traefik.http.routers.dockettest-test-fzey0d-3-web.entrypoints=web
-      - traefik.http.services.dockettest-test-fzey0d-3-web.loadbalancer.server.port=3000
-      - traefik.http.routers.dockettest-test-fzey0d-3-web.service=dockettest-test-fzey0d-3-web
-      - traefik.http.routers.dockettest-test-fzey0d-3-web.middlewares=redirect-to-https@file
-      - traefik.http.routers.dockettest-test-fzey0d-3-websecure.rule=Host(`dockettest-test-fzey0d-acad2c-152-69-162-250.traefik.me`)
-      - traefik.http.routers.dockettest-test-fzey0d-3-websecure.entrypoints=websecure
-      - traefik.http.services.dockettest-test-fzey0d-3-websecure.loadbalancer.server.port=3000
-      - traefik.http.routers.dockettest-test-fzey0d-3-websecure.service=dockettest-test-fzey0d-3-websecure
-      - traefik.http.routers.dockettest-test-fzey0d-3-websecure.tls.certresolver=letsencrypt
-      - traefik.enable=true
     networks:
       - dokploy-network
 networks:
